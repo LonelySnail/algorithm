@@ -55,6 +55,27 @@ func bubble2(array []int)  {
 	fmt.Println(count,count1)
 }
 
+// 冒泡算法优化版
+func BubbleSort(attr []int) []int {
+	changeInx := 0
+	sortBorder :=len(attr)-1
+	for i :=0;i <len(attr);i++ {
+		isSorted := true
+		for j :=0;j <sortBorder;j++ {
+			if attr[j] >attr[j+1] {
+				attr[j],attr[j+1] = attr[j+1],attr[j]
+				isSorted = false
+				changeInx = j
+			}
+		}
+		sortBorder = changeInx
+		if isSorted {
+			break
+		}
+	}
+	return attr
+}
+
 func main()  {
 	a := []int{1,2,3,6,5,4,88,56,4,33,45,23,17}
 	bubble(a)
